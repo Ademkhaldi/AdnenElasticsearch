@@ -1,0 +1,43 @@
+<hr/>
+<div *ngIf="chart != undefined && chart != null">
+  <div>
+    <label><b>Id: </b></label> {{ chart.id }}
+  </div>
+  <div>
+    <label><b>Title: </b></label> {{ chart.title }}
+  </div>
+  <div>
+    <label><b>Type: </b></label> {{ chart.type }}
+  </div>
+  <div>
+    <label><b>x_axis: </b></label> {{ chart.x_axis }}
+  </div>
+  <div>
+    <label><b>y_axis: </b></label> {{ chart.y_axis }}
+  </div>
+
+  <div>
+    <label><b>index: </b></label> {{ chart.index }}
+  </div>
+
+
+
+
+
+  <div>
+    <label><b>creationDate: </b></label> {{ chart.creationDate }}
+  </div>
+  <div>
+    <label><b>creator_id: </b></label> {{ chart.creator_id }}
+  </div>
+  <div>
+    <label><b>update_date: </b></label> {{ chart.update_date }}
+  </div>
+  <div>
+    <label><b>updator_id: </b></label> {{ chart.updator_id }}
+  </div>
+
+
+<br>
+<br>
+<button type="button" class="btn btn-primary" (click)="list()"><i class="fa fa-undo mr-1"></i>List</button>

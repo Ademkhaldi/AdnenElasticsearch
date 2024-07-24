@@ -1,0 +1,55 @@
+<div class="row">
+  <!-- Existing card columns -->
+
+  <!-- New card column for dashboard creation form -->
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div>
+      <div class="submit-form">
+        <div *ngIf="!submitted">
+            <div class="form-group">
+              <label for="row">Row</label>
+              <input
+                type="text"
+                class="form-control"
+                id="row"
+                required
+                [(ngModel)]="portlet.row"
+                name="row"
+              />
+            </div>
+            <div class="form-group">
+              <label for="column">Column</label>
+              <input
+                type="text"
+                class="form-control"
+                id="column"
+                required
+                [(ngModel)]="portlet.column"
+                name="column"
+              />
+            </div>
+            <div class="form-group">
+              <label for="creator_id">creator_id</label>
+              <input
+                type="text"
+                class="form-control"
+                id="creator_id"
+                required
+                [attr.disabled]="true"
+                [(ngModel)]="user.username" 
+                name="creator_id"
+              />
+            </div>
+  
+          <button (click)="savePortlet()" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
+
+        </div>
+        <div *ngIf="submitted">
+          <h4>Portlet was submitted successfully!</h4>
+          <button class="btn btn-success" (click)="newPortlet()">Add</button>
+          <button class="btn btn-success" (click)="gotoList()">{{ navbarTitle }}</button> <!-- Utilisez navbarTitle ici -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

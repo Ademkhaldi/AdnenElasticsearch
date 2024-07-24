@@ -1,0 +1,21 @@
+<hr/>
+<!-- details-title.component.html -->
+<div *ngIf="chartDetails">
+    <h2>Chart Details</h2>
+    <p><strong>Title:</strong> {{ chartDetails.title }}</p>
+    <p><strong>Type:</strong> {{ chartDetails.type }}</p>
+    <p><strong>X Axis:</strong> {{ chartDetails.x_axis }}</p>
+    <p><strong>Y Axis:</strong> {{ chartDetails.y_axis }}</p>
+    <p><strong>Index:</strong> {{ chartDetails.index }}</p>
+    <div *ngIf="chartDetails.datasource">
+      <h3>Datasource Details</h3>
+      <p><strong>Connection Port:</strong> {{ chartDetails.datasource.connection_port }}</p>
+      <p><strong>URL:</strong> {{ chartDetails.datasource.url }}</p>
+      <p><strong>User:</strong> {{ chartDetails.datasource.user }}</p>
+      <p><strong>Password:</strong> {{ chartDetails.datasource.password }}</p>
+    </div>
+  </div>
+  
+<br>
+<br>
+<button type="button" class="btn btn-primary" (click)="list()"><i class="fa fa-undo mr-1"></i>List</button>

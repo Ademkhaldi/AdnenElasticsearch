@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-md-8">
+      <!-- Card for editing profile -->
+      <!-- ... Existing card content ... -->
+  
+      <!-- New card for displaying dashboard list -->
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Datasource List</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="text-primary">
+                <th>type</th>
+                <th>connection_port</th>
+                <th>url</th>
+                <th>user</th>
+                <th>password</th>
+
+                
+                
+                
+                <th>chart</th>
+                <th>Actions</th>
+                <th>Association</th>
+
+              </thead>
+              <tbody>
+                <tr *ngFor="let datasource of datasources">
+                  <td>{{ datasource.type }}</td>
+                  <td>{{ datasource.connection_port }}</td>
+                  
+                  <td>{{ datasource.url }}</td>
+                  <td>{{ datasource.user }}</td>
+                  <td>  <span>{{ hidePassword(datasource.password) }}</span></td>
+                  
+                  
+                  
+                  
+                  
+                  <td>{{ datasource.chart?.title }}</td>
+
+                  <td>
+                    <button *ngIf="datasource?.id" (click)="deleteDatasource(datasource.id)" class="btn btn-custom-red mr-1"><i class="fa fa-trash"></i></button>
+                    <button *ngIf="datasource?.id" (click)="updateDatasource(datasource.id)" class="btn btn-custom-green mr-1" ><i class="fa fa-pencil"></i></button>
+                    <button *ngIf="datasource?.id" (click)="datasourceDetails(datasource.id)" class="btn btn-custom-blue mr-1" ><i class="fa fa-info-circle"></i> </button>
+
+                  </td>
+                
+                  <td>
+                    <button *ngIf="datasource?.id && chart?.id" (click)="affecterChartADatasource(datasource.id, chart.id)" class="btn btn-info">Chart</button>
+                  </td>
+
+                </tr>
+              </tbody>
+            </table>
+
+
+          </div>
+          <button class="btn btn-primary" (click)="createDatasource()">Add New</button>
+          <button class="m-3 btn btn-md btn-custom-red" (click)="deleteAllDatasources()">Remove All</button>
+      </div>
+      </div>
+    </div>
+  </div>
+  

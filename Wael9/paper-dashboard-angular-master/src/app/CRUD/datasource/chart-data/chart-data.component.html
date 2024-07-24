@@ -1,0 +1,24 @@
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="datasourceId">Datasource ID:</label>
+      <input id="datasourceId" formControlName="datasourceId" type="text">
+    </div>
+    <div>
+      <label for="index">Index:</label>
+      <input id="index" formControlName="index" type="text">
+    </div>
+    <div>
+      <label for="xAxisField">X Axis Field:</label>
+      <input id="xAxisField" formControlName="xAxisField" type="text">
+    </div>
+    <div>
+      <label for="yAxisField">Y Axis Field:</label>
+      <input id="yAxisField" formControlName="yAxisField" type="text">
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+  
+  <div>
+    <canvas id="chartEmail" width="400" height="400"></canvas>
+</div>
+  

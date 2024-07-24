@@ -1,0 +1,16 @@
+.btn-custom-green {
+    background-color: #28a745; /* Vert */
+    border-color: #28a745; /* Couleur de la bordure */
+    color: white; /* Texte blanc */
+}
+
+
+// Définir une nouvelle couleur grise argentée
+$gris-argenté: #a9a9a9;
+
+// Utiliser la couleur grise argentée pour le bouton "Annuler"
+.btn-custom-cancel {
+    background-color: $gris-argenté;
+    border-color: $gris-argenté;
+    color: white; // Texte en blanc pour un bon contraste
+}

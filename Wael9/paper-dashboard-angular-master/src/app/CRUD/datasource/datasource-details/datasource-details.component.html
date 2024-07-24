@@ -1,0 +1,41 @@
+<hr/>
+<div *ngIf="datasource != undefined && datasource != null">
+  <div>
+    <label><b>Id: </b></label> {{ datasource.id }}
+  </div>
+  <div>
+    <label><b>type: </b></label> {{ datasource.type }}
+  </div>
+  <div>
+    <label><b>connection_port: </b></label> {{ datasource.connection_port }}
+  </div>
+
+
+
+  <div>
+    <label><b>url: </b></label> {{ datasource.url }}
+  </div>
+  <div>
+    <label><b>user: </b></label> {{ datasource.user }}
+  </div>
+  <div>
+    <label><b>password: </b></label><span>{{ hidePassword(datasource.password) }}</span>
+  </div>
+            
+  <div>
+    <label><b>creationDate: </b></label> {{ datasource.creationDate }}
+  </div>
+  <div>
+    <label><b>creator_id: </b></label> {{ datasource.creator_id }}
+  </div>
+  <div>
+    <label><b>update_date: </b></label> {{ datasource.update_date }}
+  </div>
+  <div>
+    <label><b>updator_id: </b></label> {{ datasource.updator_id }}
+  </div>
+
+
+<br>
+<br>
+<button type="button" class="btn btn-primary" (click)="list()"><i class="fa fa-undo mr-1"></i>List</button>
