@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-8">
+    <!-- Card for editing profile -->
+    <!-- ... Existing card content ... -->
+
+    <!-- New card for displaying dashboard list -->
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Dashboard List</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="text-primary">
+              <th>Title</th>
+
+              <th>Actions</th>
+              <th>Association</th>
+
+            </thead>
+            <tbody>
+              <tr *ngFor="let dashboard of dashboards">
+                <td>{{ dashboard.title }}</td>
+          
+                <td>
+                  <button *ngIf="dashboard?.id" (click)="deleteDashboard(dashboard.id)" class="btn btn-custom-red mr-1">    <i class="fa fa-trash"></i> <!-- Icône de poubelle --></button>
+                  <button *ngIf="dashboard?.id" (click)="updateDashaboard(dashboard.id)" class="btn btn-custom-green mr-1" ><i class="fa fa-pencil"></i></button>
+                  <button *ngIf="dashboard?.id" (click)="dashboardDetails(dashboard.id)" class="btn btn-custom-blue mr-1" ><i class="fa fa-info-circle"></i> </button>
+
+                </td>
+                <td>
+                  <button *ngIf="portlets" (click)="navigateToAssignPortlets(dashboard.id)" class="btn btn-info">Portlets</button> <!-- Bouton d'assignation -->
+                </td>
+          
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button class="btn btn-primary mr-1" (click)="createDashboard()">Add New</button>
+        <button class="m-3 btn btn-md btn-custom-red mr-1" (click)="deleteAllDashboards()">Remove All</button>
+    </div>
+    </div>
+  </div>
+</div>
