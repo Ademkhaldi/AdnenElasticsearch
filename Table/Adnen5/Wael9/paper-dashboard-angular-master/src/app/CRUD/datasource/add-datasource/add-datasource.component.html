@@ -1,0 +1,106 @@
+<div class="row">
+  <!-- Existing card columns -->
+
+  <!-- New card column for dashboard creation form -->
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div>
+      <div class="submit-form">
+        <div *ngIf="!submitted">
+          <div class="form-group">
+            <label for="type">Type</label>
+            <input
+              type="text"
+              class="form-control"
+              id="type"
+              required
+              [(ngModel)]="datasource.type"
+              name="type"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="connection_port">Connection_port</label>
+            <input
+              type="text"
+              class="form-control"
+              id="connection_port"
+              required
+              [(ngModel)]="datasource.connection_port"
+              name="connection_port"
+            />    
+
+               
+
+            
+          </div>
+
+          
+          <div class="form-group">
+            <label for="url">URL</label>
+            <input
+              type="text"
+              class="form-control"
+              id="url"
+              required
+              [(ngModel)]="datasource.url"
+              name="url"
+            />
+            
+          
+        
+            
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="user">User</label>
+            <input
+              type="text"
+              class="form-control"
+              id="user"
+              required
+              [(ngModel)]="datasource.user"
+              name="user"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="{{ passwordFieldType }}" 
+              class="form-control"
+              id="password"
+              required
+              [(ngModel)]="datasource.password"
+              name="password"/>
+              
+          </div>
+          
+          <input type="radio" name="passwordVisibility" (click)="togglePasswordVisibility()" /> Show Password
+      
+
+
+          <div class="form-group">
+            <label for="creator_id">creator_id</label>
+            <input
+              type="text"
+              class="form-control"
+              id="creator_id"
+              required
+              [attr.disabled]="true"
+              [(ngModel)]="user.username" 
+              name="creator_id"
+            />
+          </div>
+          <button (click)="saveDatasource()" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
+
+        </div>
+        <div *ngIf="submitted">
+          <h4>Datasource was submitted successfully!</h4>
+          <button class="btn btn-success" (click)="newDatasource()">Add</button>
+          <button class="btn btn-success" (click)="gotoList()">{{ navbarTitle }}</button> <!-- Utilisez navbarTitle ici -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

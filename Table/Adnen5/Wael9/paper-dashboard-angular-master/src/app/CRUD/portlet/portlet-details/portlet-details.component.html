@@ -1,0 +1,29 @@
+<hr/>
+<div *ngIf="portlet != undefined && portlet != null">
+  <div>
+    <label><b>Id: </b></label> {{ portlet.id }}
+  </div>
+  <div>
+    <label><b>Row: </b></label> {{ portlet.row }}
+  </div>
+  <div>
+    <label><b>Column: </b></label> {{ portlet.column }}
+  </div>
+  
+  <div>
+    <label><b>creationDate: </b></label> {{ portlet.creationDate }}
+  </div>
+  <div>
+    <label><b>creator_id: </b></label> {{ portlet.creator_id }}
+  </div>
+  <div>
+    <label><b>update_date: </b></label> {{ portlet.update_date }}
+  </div>
+  <div>
+    <label><b>updator_id: </b></label> {{ portlet.updator_id }}
+  </div>
+
+
+<br>
+<br>
+<button type="button" class="btn btn-primary" (click)="list()"><i class="fa fa-undo mr-1"></i>List</button>

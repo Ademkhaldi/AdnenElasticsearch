@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-md-8">
+    <!-- Card for editing profile -->
+    <!-- ... Existing card content ... -->
+
+    <!-- New card for displaying dashboard list -->
+    <div class="card">
+      <div class="card-header">
+        <div class="container">
+          <h2>Update Chart</h2>
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="title">title:</label>
+              <input type="text" class="form-control" id="title" [(ngModel)]="chart.title" name="title">
+            </div>
+            <div class="form__group field">
+              <label for="description">type</label><br>
+              <select [(ngModel)]="chart.type" name="type">
+                <option *ngFor="let fileType of Charttypes" [value]="fileType">
+                  {{ charttypeLabelMapping[fileType] }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="x_axis">x_axis:</label>
+              <input type="text" class="form-control" id="x_axis" [(ngModel)]="chart.x_axis" name="x_axis">
+            </div>
+            <div class="form-group">
+              <label for="y_axis">y_axis:</label>
+              <input type="text" class="form-control" id="y_axis" [(ngModel)]="chart.y_axis" name="y_axis">
+            </div>
+
+            <div class="form-group">
+              <label for="index">index:</label>
+              <input type="text" class="form-control" id="index" [(ngModel)]="chart.index" name="index">
+            </div>
+
+
+            <div class="form-group">
+              <label for="updator_id">updator_id:</label>
+              <input type="text" class="form-control" id="updator_id"  [attr.disabled]="true"
+              [(ngModel)]="user.username" name="updator_id">
+            </div>
+            <button type="submit" class="btn btn-custom-green mr-1"><i class="fa fa-pencil"></i></button>
+            <button type="button" class="btn btn-custom-cancel mr-1 " (click)="cancelUpdateChart()"><i class="fa fa-undo"></i></button>
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

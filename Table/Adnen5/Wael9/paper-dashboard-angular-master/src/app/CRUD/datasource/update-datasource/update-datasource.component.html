@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-md-8">
+      <!-- Card for editing profile -->
+      <!-- ... Existing card content ... -->
+  
+      <!-- New card for displaying dashboard list -->
+      <div class="card">
+        <div class="card-header">
+  <div class="container">
+    <h2>Update Datasource</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="type">type:</label>
+        <input type="text" class="form-control" id="type" [(ngModel)]="datasource.type" name="type">
+      </div>
+      <div class="form-group">
+        <label for="connection_port">connection_port:</label>
+        <input type="text" class="form-control" id="connection_port" [(ngModel)]="datasource.connection_port" name="connection_port">
+      </div>
+      <div *ngIf="datasource.connection_port.toString().length > 4" class="text-danger">
+        connection_port ne doit pas dépasser 4 caractères.
+      </div>
+
+      <div class="form-group">
+        <label for="url">url:</label>
+        <input type="text" class="form-control" id="url" [(ngModel)]="datasource.url" name="url">
+      </div>
+
+
+      
+      <div class="form-group">
+        <label for="user">user:</label>
+        <input type="text" class="form-control" id="user" [(ngModel)]="datasource.user" name="user">
+      </div>
+
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+            type="{{ passwordFieldType }}"
+            class="form-control"
+            id="password"
+            required
+            [(ngModel)]="datasource.password"
+            name="password"
+        />
+        <input type="radio" name="passwordVisibility" (click)="togglePasswordVisibility()" /> Show Password
+
+      </div>      
+    
+
+
+  
+      
+      <div class="form-group">
+        <label for="updator_id">updator_id:</label>
+        <input type="text" class="form-control" id="updator_id"  [attr.disabled]="true"
+        [(ngModel)]="user.username" name="updator_id">
+      </div>
+       
+      <button type="submit" class="btn btn-custom-green mr-1"><i class="fa fa-pencil"></i></button>
+      <button type="button" class="btn btn-custom-cancel mr-1" (click)="cancelUpdate()"><i class="fa fa-undo"></i></button>
+  
+
+  
+    </form>
+   </div>
+  </div>
+      </div>
+    </div>
+  </div>
+      
+  
+  
+  
