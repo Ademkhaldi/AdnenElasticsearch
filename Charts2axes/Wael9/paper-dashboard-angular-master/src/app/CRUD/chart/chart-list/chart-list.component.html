@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col-md-11">
+      <!-- Card for editing profile -->
+      <!-- ... Existing card content ... -->
+  
+      <!-- New card for displaying dashboard list -->
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Chart List</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="text-primary">
+                <th>title</th>
+                <th>type</th>
+                <th>x_axis</th>
+                <th>y_axis</th>
+                <th>index</th>
+                <th>datasource</th>
+                <th>Portlet</th>
+                <th>Actions</th>
+                <th>Association</th>
+                
+              </thead>
+              <tbody>
+                <tr *ngFor="let chart of charts">
+                  <td>{{ chart.title }}</td>
+                  <td>{{ chart.type }}</td>
+                  <td>{{ chart.x_axis }}</td>
+                  <td>{{ chart.y_axis }}</td>
+                  <td>{{ chart.index }}</td>
+                  <td>{{ chart.datasource?.type }}</td>
+                  <td>{{ chart.portlet?.row }}</td>
+
+                  
+                  <td>
+                    <button *ngIf="chart?.id" (click)="deleteChart(chart.id)" class="btn btn-custom-red mr-1"><i class="fa fa-trash"></i></button>
+                    <button *ngIf="chart?.id" (click)="updateChart(chart.id)" class="btn btn-custom-green mr-1" ><i class="fa fa-pencil"></i></button>
+                    <button *ngIf="chart?.id" (click)="chartDetails(chart.id)" class="btn btn-custom-blue mr-1" ><i class="fa fa-info-circle"></i></button>
+                    <button *ngIf="chart?.id" (click)="chartDetailsTitle(chart.title)" class="btn btn-custom-blue mr-1" >  <i class="fa fa-bookmark"></i></button>
+                    <button class="btn btn-secondary" (click)="goToChartData(chart.id)">View Chart Data</button>
+                    <button class="btn btn-secondary" (click)="goToHistogramm(chart.id)">Histogramm</button>
+
+
+
+                    
+                  </td>
+                  <td>
+                    <button *ngIf="chart?.id && datasource?.id"(click)="affecterDatasourceAChart(chart.id, datasource.id)" class="btn btn-info mr-1" >datasource</button>
+                    <button *ngIf="chart?.id && datasource?.id"(click)="affecterPortletAChart(chart.id, portlet.id)" class="btn btn-info mr-1" >portlet</button>
+
+                  </td>
+                  
+
+          
+                </tr>
+              
+               
+              </tbody>
+            </table>
+          </div>
+          <button class="btn btn-primary" (click)="createChart()">Add New </button>
+          <button class="m-3 btn btn-md btn-custom-red" (click)="deleteAllCharts()">Remove All</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+

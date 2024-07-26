@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>Assign Datasource to Charts</h2>
+  
+    
+    <div class="form-group">
+      <label for="datasourceSelect">Select a Datasource:</label>
+      <select id="datasourceSelect" class="form-control" [(ngModel)]="selectedDatasourceId">
+        <option *ngFor="let datasource of datasource" [value]="datasource.id">{{ datasource.type }}</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <label for="chartSelect">Select a Chart:</label>
+      <select id="chartSelect" class="form-control" [(ngModel)]="selectedChartId">
+        <option *ngFor="let chart of charts" [value]="chart.id">{{ chart.title }}</option>
+      </select>
+    </div>
+  
+    <button (click)="affecterDatasourceAChart()" class="btn btn-primary">Assign</button>
+  
+
+  </div>
+  

@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-md-12">
+      <!-- Card for editing profile -->
+      <!-- ... Existing card content ... -->
+  
+      <!-- New card for displaying dashboard list -->
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Portlet List</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="text-primary">
+                <th>row</th>
+                <th>column</th>
+                <th>Dashboards assigné </th>
+                <th>Charts assigné </th>
+
+                <th>Actions</th>
+                <th>Association</th>
+
+              </thead>
+              <tbody>
+                <tr *ngFor="let portlet of portlets">
+                  <td>{{ portlet.row }}</td>
+                  <td>{{ portlet.column }}</td>
+                  <td>{{ portlet.dashboard?.title }}</td>
+                  <td>{{ portlet.chart?.title }}</td>
+
+                  <td>
+                    <button *ngIf="portlet?.id" (click)="deletePortlet(portlet.id)" class="btn btn-custom-red mr-1"><i class="fa fa-trash"></i></button>
+                    <button *ngIf="portlet?.id" (click)="updatePortlet(portlet.id)" class="btn btn-custom-green mr-1" ><i class="fa fa-pencil"></i></button>
+                    <button *ngIf="portlet?.id" (click)="portletDetails(portlet.id)" class="btn btn-custom-blue mr-1" ><i class="fa fa-info-circle"></i></button>
+
+                  </td>
+                  <td>
+                    <button *ngIf="portlet?.id && dashboard?.id" (click)="affecterDashboardAPortlet(portlet.id, dashboard.id)" class="btn btn-info mr-1">Dashboard</button>
+                    <button *ngIf="portlet?.id && chart?.id" (click)="affecterChartAPortlet(portlet.id, chart.id)" class="btn btn-info mr-1">Chart</button>
+                  </td>
+            
+                </tr>
+
+
+
+              </tbody>
+            </table>
+          </div>
+          <button class="btn btn-primary mr-1" (click)="createPortlet()">Add New</button>
+          <button class="m-3 btn btn-md btn-custom-red mr-1" (click)="deleteAllPortlets()">Remove All</button>
+      </div>
+      </div>
+    </div>
+  </div>
+  

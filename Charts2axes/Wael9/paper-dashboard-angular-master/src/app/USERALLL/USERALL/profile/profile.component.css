@@ -1,0 +1,6 @@
+.profile-img-card {
+    width: 800px; /* Ajustez la largeur selon vos besoins */
+    height: 300px; /* Ajustez la hauteur selon vos besoins */
+    object-fit: cover; /* Pour que l'image remplisse l'espace défini */
+  }
+  

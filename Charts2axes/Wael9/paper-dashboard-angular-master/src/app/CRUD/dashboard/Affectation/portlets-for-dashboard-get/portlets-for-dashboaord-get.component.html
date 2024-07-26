@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-13">
+    <!-- New card for displaying dashboard list -->
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Dashboard Associé avec List Portlet</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="text-primary">
+              <th>dashboardId</th>
+              <th>Title</th>
+              <th>Portlets</th>
+            
+            </thead>
+            <tbody>
+              <tr *ngFor="let dashboard of dashboards">
+                <td>{{ dashboard.id }}</td>
+                <td>{{ dashboard.title }}</td>
+                <td>
+                  <!-- Afficher les portlets associées à ce tableau de bord -->
+                  <div *ngIf="dashboard.portlets && dashboard.portlets.length > 0">
+                    <div *ngFor="let portlet of dashboard.portlets">
+                      <span class="font-weight-bold text-primary">Id:</span> {{portlet.id}}, <span class="font-weight-bold text-primary">Row:</span> {{ portlet.row }}, <span class="font-weight-bold text-primary">Column:</span> {{ portlet.column }}
+                    </div>
+                  </div>
+                  <div *ngIf="!dashboard.portlets || dashboard.portlets.length === 0">
+                    Aucun portlet associée
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button class="btn btn-primary" (click)="Dashboard()">List Dashboard</button>
+        
+      </div>
+    </div>
+  </div>
+</div>

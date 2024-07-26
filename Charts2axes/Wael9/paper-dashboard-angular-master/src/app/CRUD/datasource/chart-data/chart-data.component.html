@@ -1,0 +1,54 @@
+<div>
+  <div class="row">
+    <div class="col-md-4">
+      <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="chartId">Chart ID:</label>
+          <input type="text" id="chartId" formControlName="chartId" class="form-control" placeholder="Enter Chart ID">
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Fetch Data</button>
+      </form>
+    </div>
+    <div class="col-md-8">
+      <canvas id="chartContainer"></canvas>
+    </div>
+  </div>
+  </div>
+  
+  <div *ngIf="camabertData.length > 0">
+    <canvas id="chartContainer"></canvas>
+  </div>
+  <div *ngIf="camabertData.length === 0">
+    <p>No chart available</p>
+  </div>
+  
+
+
+<!-- chart-data.component.html -->
+<div class="container mt-5">
+
+  
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <h3>Table Data</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Label</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of tableData">
+              <td>{{ data.label }}</td>
+              <td>{{ data.value }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+
+
+  
