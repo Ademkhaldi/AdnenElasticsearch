@@ -1,0 +1,14 @@
+<div>
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <label for="chartId">Chart ID:</label>
+    <input id="chartId" formControlName="chartId">
+    <button type="submit">Fetch Data</button>
+  </form>
+</div>
+
+<div *ngIf="hasData()">
+  <canvas id="chartContainer"></canvas>
+</div>
+<div *ngIf="!hasData()">
+  <p>No chart available</p>
+</div>

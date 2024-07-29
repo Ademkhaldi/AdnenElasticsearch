@@ -1,0 +1,25 @@
+<hr/>
+<div *ngIf="dashboard != undefined && dashboard != null">
+  <div>
+    <label><b>Id: </b></label> {{ dashboard.id }}
+  </div>
+  <div>
+    <label><b>Title: </b></label> {{ dashboard.title }}
+  </div>
+  <div>
+    <label><b>creationDate: </b></label> {{ dashboard.creationDate }}
+  </div>
+  <div>
+    <label><b>creator_id: </b></label> {{ dashboard.creator_id }}
+  </div>
+  <div>
+    <label><b>update_date: </b></label> {{ dashboard.update_date }}
+  </div>
+  <div>
+    <label><b>updator_id: </b></label> {{ dashboard.updator_id }}
+  </div>
+
+
+<br>
+<br>
+<button type="button" class="btn btn-primary" (click)="list()"><i class="fa fa-undo mr-1"></i>List</button>
