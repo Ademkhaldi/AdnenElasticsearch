@@ -1,0 +1,19 @@
+.btn-custom-red {
+    color: white;
+    background-color: red;
+  }
+
+
+  .btn-custom-green {
+    background-color: #28a745; /* Vert */
+    border-color: #28a745; /* Couleur de la bordure */
+    color: white; /* Texte blanc */
+}
+
+
+
+
+.admin-user {
+  background-color: #f0ad4e; /* Couleur de fond pour les utilisateurs ayant le rôle d'administrateur */
+  color: #ffffff; /* Couleur du texte pour les utilisateurs ayant le rôle d'administrateur */
+}

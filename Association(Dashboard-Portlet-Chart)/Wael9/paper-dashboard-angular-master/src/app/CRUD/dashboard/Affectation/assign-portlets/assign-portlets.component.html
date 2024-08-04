@@ -1,0 +1,28 @@
+<h1>Assigner un portlet à un tableau de bord</h1>
+<div>
+  <div class="form-group">
+    <label for="Row">Portlet ROW</label>
+    <input type="text" class="form-control" id="Row" required [(ngModel)]="selectedPortlet.row" name="Type">
+  </div>
+  <div class="form-group">
+    <label for="Column">Portlet COLUMN</label>
+    <input type="text" class="form-control" id="Column" required [(ngModel)]="selectedPortlet.column" name="Produit">
+  </div>
+  <div class="form-group">
+    <label for="existingPortletId">Existing Portlet ID</label>
+    <select class="form-control" id="existingPortletId" [(ngModel)]="selectedPortlet" name="existingPortletId">
+      <option value="">Select Portlet ID</option>
+      <option *ngFor="let portlet of portlets" [ngValue]="portlet">{{ portlet.id }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="dashboard">Dashboard</label>
+    <select class="form-control" id="dashboard" [(ngModel)]="selectedDashboardId" name="dashboard" required>
+      <option *ngFor="let dashboard of dashboards" [value]="dashboard.id">{{ dashboard.title }}</option>
+    </select>
+  </div>
+</div>
+
+<button (click)="assignerListePortletsADashboard()" class="btn btn-success">Assign</button> <!-- Bouton d'assignation -->
+
+

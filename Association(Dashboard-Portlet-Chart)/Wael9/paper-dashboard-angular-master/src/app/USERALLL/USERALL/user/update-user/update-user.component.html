@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-8">
+      <!-- Card for editing profile -->
+      <!-- ... Existing card content ... -->
+  
+      <!-- New card for displaying dashboard list -->
+      <div class="card">
+        <div class="card-header">
+  <div class="container">
+    <h2>Update User</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" id="username" [(ngModel)]="user.username" name="username">
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" class="form-control" id="email" [(ngModel)]="user.email" name="email">
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="text" class="form-control" id="password" [(ngModel)]="user.password" name="password" readonly>
+      </div>
+     
+      <button type="submit" class="btn btn-custom-green"><i class="fa fa-pencil"></i></button>
+      <button type="button" class="btn btn-custom-cancel" (click)="cancelUpdateUser()"><i class="fa fa-undo"></i></button>
+  
+
+    </form>
+   </div>
+  </div>
+      </div>
+    </div>
+  </div>
+      
+  
+  
+  
