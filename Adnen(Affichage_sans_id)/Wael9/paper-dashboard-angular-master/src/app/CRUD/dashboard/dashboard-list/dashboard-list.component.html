@@ -1,0 +1,89 @@
+<div class="row">
+  <div class="col-md-8">
+    <!-- Card for displaying dashboard list -->
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Dashboard List</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="text-primary">
+              <th>Title</th>
+              <th>Actions</th>
+              <th>Association</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let dashboard of dashboards">
+                <td>{{ dashboard.title }}</td>
+                <td>
+                  <button *ngIf="dashboard?.id" (click)="deleteDashboard(dashboard.id)" class="btn btn-custom-red mr-1">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                  <button *ngIf="dashboard?.id" (click)="updateDashboard(dashboard.id)" class="btn btn-custom-green mr-1">
+                    <i class="fa fa-pencil"></i>
+                  </button>
+                  <button *ngIf="dashboard?.id" (click)="dashboardDetails(dashboard.id)" class="btn btn-custom-blue mr-1">
+                    <i class="fa fa-info-circle"></i>
+                  </button>
+                </td>
+                <td>
+                  <button *ngIf="portlets" (click)="navigateToAssignPortlets(dashboard.id)" class="btn btn-info">
+                    Portlets
+                  </button>
+                </td>
+                <td>
+                  <button *ngIf="dashboard?.id" (click)="navigateToAssign(dashboard.id)" class="btn btn-info">
+                    Assign
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button class="btn btn-primary mr-1" (click)="createDashboard()">Add New</button>
+        <button class="m-3 btn btn-md btn-custom-red mr-1" (click)="deleteAllDashboards()">Remove All</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngFor="let dashboard of dashboards">
+  <div class="card mb-4">
+    <div class="card-body">
+      <h2 class="card-title">{{ dashboard.title }}</h2>
+
+      <div *ngIf="dashboard.portlets && dashboard.portlets.length > 0; else noPortlets">
+        <div class="row">
+          <div *ngFor="let portlet of portlets" class="col-md-7">
+            <div class="card mb-7">
+              <div class="card-body">
+                <h5 class="card-title">Portlet Row: {{ portlet.row }}</h5>
+                <div *ngIf="portlet.chart">
+                  <ng-container [ngSwitch]="getChartComponent(portlet.chart)">
+                    <div *ngSwitchCase="'app-table2'">
+                      <app-table2></app-table2>
+                    </div>
+                    <div *ngSwitchCase="'app-Camambert2'">
+                      <app-Camambert2></app-Camambert2>
+                    </div>
+                    <div *ngSwitchCase="'app-histogramme2'">
+                      <app-histogramme2></app-histogramme2>
+                    </div>
+                    <div *ngSwitchDefault>
+                      <p>Chart component not available.</p>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #noPortlets>
+        <p>No portlets found for this dashboard.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>

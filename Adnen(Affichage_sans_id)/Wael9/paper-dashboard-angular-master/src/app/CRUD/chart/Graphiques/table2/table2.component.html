@@ -1,0 +1,19 @@
+<div class="row mt-5">
+  <div class="col-md-12">
+    <h3>Table Data</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Label</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of tableData">
+          <td>{{ data.label }}</td>
+          <td>{{ data.value }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
