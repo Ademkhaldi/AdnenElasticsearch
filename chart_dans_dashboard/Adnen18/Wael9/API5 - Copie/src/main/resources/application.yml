@@ -1,0 +1,91 @@
+spring:
+  application:
+    name: APIgateway-service
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods: "*"
+      routes:
+        - id: dashboards
+          predicates:
+            - Path=/dashboards/**
+          uri: http://localhost:8099
+
+        - id: datasources
+          predicates:
+              - Path=/datasources/**
+
+          uri: http://localhost:8099
+
+        - id: portlets
+          predicates:
+            - Path=/portlets/**
+
+          uri: http://localhost:8099
+
+
+        - id: chart
+          predicates:
+            - Path=/Charts/**
+
+          uri: http://localhost:8099
+
+
+        - id: Area
+          predicates:
+            - Path=/api/user-activity-data/Area/**
+
+          uri: http://localhost:8099
+        - id: KPI
+          predicates:
+            - Path=/DataController/KPI/**
+
+          uri: http://localhost:8099
+        - id: Camembert
+          predicates:
+            - Path=/api/email-data/Camembert/**
+
+          uri: http://localhost:8099
+
+        - id: line-chart-data
+          predicates:
+           - Path=/api/line-chart-data/**
+
+          uri: http://localhost:8099
+
+
+
+        - id: test
+          predicates:
+            - Path=/api/test/**
+
+          uri: http://localhost:8098
+
+
+        - id: user2
+          predicates:
+            - Path=/user2/**
+
+          uri: http://localhost:8098
+
+        - id: auth
+          predicates:
+            - Path=/api/auth/**
+
+          uri: http://localhost:8098
+
+
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin, RETAIN_FIRST
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 9100

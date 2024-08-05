@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-md-8">
+    <!-- Card for editing profile -->
+    <!-- ... Existing card content ... -->
+
+    <!-- New card for displaying dashboard list -->
+    <div class="card">
+      <div class="card-header">
+<div class="container">
+  <h2>Update Dashboard</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" class="form-control" id="title" [(ngModel)]="dashboard.title" name="title">
+    </div>
+    <div class="form-group">
+      <label for="updator_id">updator_id:</label>
+      <input type="text" class="form-control" id="updator_id"  [attr.disabled]="true"
+      [(ngModel)]="user.username" name="updator_id">
+    </div>
+   
+    <button type="submit" class="btn btn-custom-green mr-1"><i class="fa fa-pencil"></i></button>
+    <button type="button" class="btn btn-custom-cancel mr-1" (click)="cancelUpdate()"><i class="fa fa-undo"></i></button>
+
+
+  </form>
+ </div>
+</div>
+    </div>
+  </div>
+</div>
+    
+
+
