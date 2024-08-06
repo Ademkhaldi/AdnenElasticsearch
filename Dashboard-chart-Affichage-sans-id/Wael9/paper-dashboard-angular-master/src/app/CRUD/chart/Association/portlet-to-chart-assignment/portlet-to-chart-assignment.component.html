@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>Assign Portlet to Chart</h2>
+  
+  
+    <div class="form-group">
+      <label for="portletSelect">Select a Portlet:</label>
+      <select id="portletSelect" class="form-control" [(ngModel)]="selectedPortletId">
+        <option *ngFor="let portlet of portlet" [value]="portlet.id">{{ portlet.row }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="chartSelect">Select a Chart:</label>
+      <select id="chartSelect" class="form-control" [(ngModel)]="selectedChartId">
+        <option *ngFor="let chart of charts" [value]="chart.id">{{ chart.title }}</option>
+      </select>
+    </div>
+
+    <button (click)="affecterPortletAChart()" class="btn btn-primary">Assign</button>
+  
+
+  </div>
+  

@@ -1,0 +1,82 @@
+<!-- Section for Admin -->
+<div class="row" *ngIf="isAdmin">
+  <div class="col-md-12">
+    <!-- Card for editing profile -->
+    <!-- ... Existing card content ... -->
+
+    <!-- New card for displaying dashboard list -->
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">User Info</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="text-primary">
+                <th>id</th>
+                <th>username</th>
+                <th>email</th>
+                <th>password</th>
+                <th>roles</th>
+                <th>Actions</th>
+              </thead>
+              <tbody>
+              <tr *ngFor="let user of users" [ngClass]="{'admin-user': hasAdminRole(user)}">
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ getRoleNames(user.roles) }}</td>
+                <td>
+                    <button *ngIf="currentUser && hasUserRole(currentUser) && user.id !== currentUser.id" (click)="deleteUser(user.id)" class="btn btn-custom-red mr-1">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                    <button *ngIf="isAdmin && hasUserRole(user)" (click)="deleteUser(user.id)" class="btn btn-custom-red mr-1">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                    <button *ngIf="user.id" (click)="updateUser(user.id)" class="btn btn-custom-green">
+                      <i class="fa fa-pencil"></i>
+                    </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section for User -->
+<div class="row" *ngIf="isUser">
+  <div class="col-md-12">
+    <!-- Card for editing profile -->
+    <!-- ... Existing card content ... -->
+
+    <!-- New card for displaying dashboard list -->
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">User info</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="text-primary">
+                <th>username</th>
+                <th>email</th>
+                <th>password</th>
+                <th>roles</th>
+              </thead>
+              <tbody>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ getRoleNames(user.roles) }}</td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

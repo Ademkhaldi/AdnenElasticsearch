@@ -1,0 +1,38 @@
+<div>
+  <h2>Dashboard: {{ dashboardTitle }}</h2> <!-- Display the dashboard title -->
+
+  <div *ngIf="portlets && portlets.length > 0; else noPortlets">
+    <div class="row">
+      <div *ngFor="let portlet of portlets" class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Portlet ID: {{ portlet.id }}</h5>
+            <p class="card-text"><strong>Row:</strong> {{ portlet.row }}</p>
+            <p class="card-text"><strong>Column:</strong> {{ portlet.column }}</p>
+            <div *ngIf="portlet.chart">
+              <h6 class="card-subtitle mb-2 text-muted">Chart Details</h6>
+              <p class="card-text"><strong>Chart ID:</strong> {{ portlet.chart.id }}</p>
+              <p class="card-text"><strong>Title:</strong> {{ portlet.chart.title }}</p>
+              <p class="card-text"><strong>Type:</strong> {{ portlet.chart.type }}</p>
+              <p class="card-text"><strong>X Axis:</strong> {{ portlet.chart.x_axis }}</p>
+              <p class="card-text"><strong>Y Axis:</strong> {{ portlet.chart.y_axis }}</p>
+              <p class="card-text"><strong>Aggregation:</strong> {{ portlet.chart.aggreg }}</p>
+              <p class="card-text"><strong>Index:</strong> {{ portlet.chart.index }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noPortlets>
+    <p>No portlets found for this dashboard.</p>
+  </ng-template>
+
+  <!-- Navigation Buttons -->
+  <div class="mt-3">
+    <button class="btn btn-primary" (click)="navigateToAssignPortlets(dashboardId)">Assign</button>
+    <button class="btn btn-secondary" (click)="list()"><i class="fa fa-undo"></i></button>
+  </div>
+</div>
+z
