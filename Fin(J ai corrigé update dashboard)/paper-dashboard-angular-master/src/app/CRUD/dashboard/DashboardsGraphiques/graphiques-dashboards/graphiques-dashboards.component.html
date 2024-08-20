@@ -1,0 +1,27 @@
+<div *ngIf="portlets && portlets.length > 0">
+  <div class="portlet-container">
+    <div *ngFor="let portlet of portlets" class="portlet" [ngClass]="getPortletPositionClass(portlet)">
+      <div class="card mb-7">
+        <div class="card-body">
+          <h5 class="card-title">Portlet Row: {{ portlet.row }} Column: {{ portlet.column }}</h5>
+          <div *ngIf="portlet.chart">
+            <ng-container [ngSwitch]="getChartComponent(portlet.chart)">
+              <div *ngSwitchCase="'app-Camambert2'">
+                <app-Camambert2 [chartId]="portlet.chart.id"></app-Camambert2> 
+              </div>
+              <div *ngSwitchCase="'app-table2'">
+                <app-table2 [chartId]="portlet.chart.id"></app-table2>
+              </div>
+              <div *ngSwitchCase="'app-histogramme2'">
+                <app-histogramme2 [chartId]="portlet.chart.id"></app-histogramme2>
+              </div>
+              <div *ngSwitchDefault>
+                <p>Chart component not available</p>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <div class="container">
+          <h2>Update Chart</h2>
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="title">Title:</label>
+              <input type="text" class="form-control" id="title" [(ngModel)]="chart.title" name="title">
+            </div>
+
+            <div class="form-group">
+              <label for="type">Type</label><br>
+              <select [(ngModel)]="chart.type" name="type" class="form-control">
+                <option *ngFor="let fileType of Charttypes" [value]="fileType">
+                  {{ charttypeLabelMapping[fileType] }}
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="datasource">Datasource:</label>
+              <select [(ngModel)]="chart.datasource.type" name="datasource" class="form-control" (change)="onDatasourceChange($event)">
+                <option *ngFor="let datasource of datasources" [value]="datasource.id">
+                  {{ datasource.type }}
+                </option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="index">Index:</label>
+              <select [(ngModel)]="chart.index" name="index" class="form-control" (change)="onIndexChange()">
+                <option *ngFor="let index of indices" [value]="index">
+                  {{ index }}
+                </option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="x_axis">X Axis:</label>
+              <select [(ngModel)]="chart.x_axis" name="x_axis" class="form-control">
+                <option *ngFor="let option of x_axisOptions" [value]="option">
+                  {{ option }}
+                </option>
+              </select>
+            </div>
+                        
+            <div class="form-group">
+              <label for="y_axis">Y Axis:</label>
+              <select [(ngModel)]="chart.y_axis" name="y_axis" class="form-control">
+                <option *ngFor="let option of y_axisOptions" [value]="option">
+                  {{ option }}
+                </option>
+              </select>
+            </div>
+            
+            <div class="form-group" *ngIf="chart.type !== 'Pie' && chart.type !== 'Table' && chart.type !== 'Line' && chart.type !== 'Area'">
+              <label for="aggregation">Aggregation:</label>
+              <select [(ngModel)]="chart.aggreg" name="aggregation" class="form-control">
+                <option *ngFor="let option of aggregationOptions" [value]="option">
+                  {{ option }}
+                </option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="updator_id">Updator ID:</label>
+              <input type="text" class="form-control" id="updator_id" [attr.disabled]="true"
+                [(ngModel)]="user.username" name="updator_id">
+            </div>
+
+            <button type="submit" class="btn btn-custom-green mr-1"><i class="fa fa-pencil"></i></button>
+            <button type="button" class="btn btn-custom-cancel mr-1" (click)="cancelUpdateChart()"><i class="fa fa-undo"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+<div class="row">
+  <!-- Existing card columns -->
+  
+  <!-- New card column for dashboard creation form -->
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div>
+      <div class="submit-form">
+        <div *ngIf="!submitted">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              required
+              [(ngModel)]="chart.title"
+              name="title" 
+            />
+          </div>
+          <div class="form__group field">
+            <label for="type">Type</label><br>
+            <select [(ngModel)]="chart.type" name="type" class="form-control" required>
+              <option *ngFor="let fileType of Charttypes" [value]="fileType">
+                {{ charttypeLabelMapping[fileType] }}
+              </option>
+            </select>
+          </div>
+          
+          <div class="form__group field">
+            <label for="datasource">Datasource</label><br>
+            <select [(ngModel)]="idDatasource" name="datasource" class="form-control" (change)="IndexData($event.target.value)" required>
+              <option *ngFor="let datasource of datasources" [value]="datasource.id">
+                {{ datasource.type }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group" *ngIf="indices.length > 0">
+            <label for="index">Index:</label>
+            <select class="form-control" id="index" [(ngModel)]="chart.index" name="index" (change)="onIndexChange($event.target.value)" required>
+              <option *ngFor="let index of indices" [value]="index">
+                {{ index }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="x_axis">X Axis</label>
+            <select
+              class="form-control"
+              id="x_axis"
+              required
+              [(ngModel)]="chart.x_axis"
+              name="x_axis"
+            >
+              <option *ngFor="let attribute of attributes" [value]="attribute">{{ attribute }}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="y_axis">Y Axis</label>
+            <select
+              class="form-control"
+              id="y_axis"
+              required
+              [(ngModel)]="chart.y_axis"
+              name="y_axis"
+            >
+              <option *ngFor="let attribute of attributes" [value]="attribute">{{ attribute }}</option>
+            </select>
+          </div>
+
+
+
+          <div class="form-group" *ngIf="chart.type !== 'Pie' && chart.type !== 'Table' && chart.type !== 'Line' && chart.type !== 'Area'">
+            <label for="aggreg">Aggregation</label>
+            <select
+              class="form-control"
+              id="aggreg"
+              required
+              [(ngModel)]="chart.aggreg"
+              name="aggreg"
+            >
+              <option *ngFor="let attribute of attributes" [value]="attribute">{{ attribute }}</option>
+            </select>
+          </div>
+          
+
+
+          
+
+          <div class="form-group">
+            <label for="creator_id">creator_id</label>
+            <input
+              type="text"
+              class="form-control"
+              id="creator_id"
+              required
+              [attr.disabled]="true"
+              [(ngModel)]="user.username" 
+              name="creator_id"
+            />
+          </div>
+  
+            <button (click)="saveChart()" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
+          </div>
+          <div *ngIf="submitted">
+            <h4>Chart was submitted successfully!</h4>
+            <button class="btn btn-success" (click)="newChart()">Add</button>
+            <button class="btn btn-success" (click)="gotoList()">{{ navbarTitle }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
