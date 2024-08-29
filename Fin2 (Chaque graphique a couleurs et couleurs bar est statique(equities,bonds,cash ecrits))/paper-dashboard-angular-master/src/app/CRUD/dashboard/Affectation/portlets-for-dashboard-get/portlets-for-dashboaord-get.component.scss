@@ -1,0 +1,35 @@
+/* src/app/components/portlets-for-dashboard-get/portlets-for-dashboard-get.component.css */
+.error {
+    color: red;
+  }
+  
+
+  .portlet-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+  }
+  
+  .portlet-card h3 {
+    margin-top: 0;
+  }
+  
+  .portlet-card h4 {
+    margin-bottom: 5px;
+  }
+  
+
+
+
+  .outer-card {
+    border: 1px solid #dee2e6; /* Couleur de la bordure pour la carte extérieure */
+  }
+  
+  .inner-card {
+    background-color: #f8f9fa; /* Couleur de fond plus sombre pour les cartes intérieures */
+    border: 1px solid #ced4da; /* Couleur de la bordure pour les cartes intérieures */
+  }
+  
+
+  

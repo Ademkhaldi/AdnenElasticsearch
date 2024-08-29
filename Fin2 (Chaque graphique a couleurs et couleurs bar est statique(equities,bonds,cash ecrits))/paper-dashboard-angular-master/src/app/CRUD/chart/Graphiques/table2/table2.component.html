@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <!-- Carte pour le titre -->
+    <div class="col-md-12 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="text-center">{{ chartTitle }}</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carte pour le tableau -->
+    <div class="col-md-12">
+      <div class="card custom-card">
+        <div class="card-body">
+          <div style="text-align: center;">
+            <table class="table table-striped mx-auto">
+              <thead>
+                <tr>
+                  <th class="text-center">Label</th>
+                  <th class="text-center">Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of tableData">
+                  <td class="text-center">{{ data.label }}</td>
+                  <td class="text-center">{{ data.value }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
