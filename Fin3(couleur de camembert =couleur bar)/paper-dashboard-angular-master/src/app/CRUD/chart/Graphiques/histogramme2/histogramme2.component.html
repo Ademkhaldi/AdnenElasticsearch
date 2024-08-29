@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <!-- Carte pour le titre -->
+    <div class="col-md-12 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="text-center">{{ chartTitle }}</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carte pour le graphique ou le message d'absence de données -->
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div *ngIf="hasData()">
+            <canvas id="histogrammeChartContainer"></canvas>
+          </div>
+          <div *ngIf="!hasData()">
+            <p class="text-center">No data available to display.</p>
+          </div>
+        </div>
+      </div>
+<button *ngIf="showButton" type="button" class="btn btn-custom-cancel mr-1" (click)="return()"><i class="fa fa-undo"></i></button>
+
+    </div>
+  </div>
+</div>

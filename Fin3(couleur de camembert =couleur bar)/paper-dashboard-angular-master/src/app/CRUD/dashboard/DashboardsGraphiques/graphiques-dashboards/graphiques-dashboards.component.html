@@ -1,0 +1,38 @@
+<div>
+  <div class="card">
+    <h2 class="text-center">Dashboard: {{ dashboardTitle }}</h2>
+  </div>
+
+
+
+  <div *ngIf="portlets && portlets.length > 0">
+    <div class="portlet-container">
+      <div *ngFor="let portlet of portlets" class="portlet" [ngClass]="getPortletPositionClass(portlet)">
+        <div *ngIf="portlet.chart">
+          <ng-container [ngSwitch]="getChartComponent(portlet.chart)">
+            <!-- Carte pour app-Camambert2 -->
+            <div *ngSwitchCase="'app-Camambert2'">
+                  <app-Camambert2 [chartId]="portlet.chart.id" [showButton]="false"></app-Camambert2>
+            </div>
+  
+            <!-- Carte pour app-table2 avec bouton caché -->
+            <div *ngSwitchCase="'app-table2'">
+              <app-table2 [chartId]="portlet.chart.id" [showButton]="false"></app-table2>
+            </div>
+  
+            <!-- Carte pour app-histogramme2 -->
+            <div *ngSwitchCase="'app-histogramme2'">
+                  <app-histogramme2 [chartId]="portlet.chart.id" [showButton]="false"></app-histogramme2>
+            </div>
+  
+            <!-- Carte par défaut pour composants non disponibles -->
+            <div *ngSwitchDefault>
+                  <p>Chart component not available</p>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
